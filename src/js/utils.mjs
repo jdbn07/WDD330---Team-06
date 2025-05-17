@@ -21,3 +21,10 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+export function renderListWithTemplate(template, parent, list) {
+  parent.innerHTML = '';
+  list.forEach(item => {
+    parent.insertAdjacentHTML("beforeend", template(item));
+  });
+}
